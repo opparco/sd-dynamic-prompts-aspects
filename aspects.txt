@@ -1,0 +1,2 @@
+standing	480x640
+lying	640x480
