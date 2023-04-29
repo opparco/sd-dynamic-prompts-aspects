@@ -5,6 +5,7 @@ from modules.processing import StableDiffusionProcessing
 import gradio as gr
 
 basedir = scripts.basedir()
+aspects_file = os.path.join(basedir, "aspects.txt")
 
 
 class Script(scripts.Script):
@@ -32,11 +33,9 @@ class Script(scripts.Script):
         return [enabled]
 
     def load_aspects_from_file(self):
-        aspects_file = os.path.join(basedir, "aspects.txt")
-
         if os.path.exists(aspects_file):
             mtime = os.path.getmtime(aspects_file)
-            # print("Dynamic aspects aspects.txt mtime: {}.".format(mtime))
+            # print("Dynamic aspects file mtime: {}.".format(mtime))
             if mtime == self.aspects_file_mtime:
                 return  # not modified.
 
